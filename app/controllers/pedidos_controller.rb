@@ -35,5 +35,7 @@ class PedidosController < ApplicationController
   
   def set_pedido
   	@pedido = Pedido.find(params[:id])
+    @carnes = Item.carnes
+    @acompanhamentos = Item.acompanhamentos
   end
 end

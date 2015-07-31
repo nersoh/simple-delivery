@@ -1,4 +1,7 @@
 %h1 Pedidos#index
 %ul
 	- @pedidos.each do |pedido|
-		%li= link_to "Pedido ##{pedido.id}", pedido
+		%li
+			= link_to "Pedido ##{pedido.id}", pedido
+			\|
+			= link_to "editar", edit_pedido_path(pedido)

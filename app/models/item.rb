@@ -4,7 +4,8 @@ class Item < ActiveRecord::Base
 	has_many :relationships
 	has_many :pedidos, through: :relationships
 	
-	validates_presence_of :descricao
+	validates :descricao, presence: true, uniqueness: {case_sensitive: false}
+
 
 	def self.carnes
 		where(tipo: tipos[:carne])

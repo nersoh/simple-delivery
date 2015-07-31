@@ -17,4 +17,10 @@ RSpec.describe Item, type: :model do
     @item.tipo = 'carne'
     expect(@item.carne?).to be
   end
+
+  it "has unique description" do
+    create(:item, descricao: "same")
+    @item.descricao = "same"
+    expect(@item).not_to be_valid
+  end
 end
