@@ -1,0 +1,36 @@
+%h1 Novo pedido
+
+- if @pedido.errors.any?
+	#error-explanation
+		.alert.alert-danger
+			= "This form contains " << pluralize(@pedido.errors.count, "error")
+			%ul
+				- @pedido.errors.full_messages.each do |message|
+					%li= message
+
+= form_for(@pedido) do |p|
+	%h3 Carnes
+	- @carnes.each do |item|
+		%div
+			= label_tag "pedido_item_#{item.id}" do
+				= check_box_tag "pedido[item_ids][]", item.id, false, id: "pedido_item_#{item.id}"
+				= item.descricao
+	%h3 Acompanhamentos
+	- @acompanhamentos.each do |item|
+		%div
+			= label_tag "pedido_item_#{item.id}" do
+				= check_box_tag "pedido[item_ids][]", item.id, false, id: "pedido_item_#{item.id}"
+				= item.descricao
+	.endereco-fields
+		%h3 Endereço
+		.field
+			= p.label :rua
+			= p.text_field :rua, class: 'form-control'
+		.field
+			= p.label :numero
+			= p.text_field :numero, class: 'form-control'
+		.field
+		= p.label :referencia
+		= p.text_field :referencia, class: 'form-control'
+	.submit-btn
+		= p.submit "Finalizar pedido", class: 'btn btn-primary'

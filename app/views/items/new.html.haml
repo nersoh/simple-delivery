@@ -1,0 +1,17 @@
+%h1 Novo Item
+
+- if @item.errors.any?
+	#error-explanation
+		.alert.alert-danger
+			= "This form contains " << pluralize(@item.errors.count, "error")
+			%ul
+				- @item.errors.full_messages.each do |message|
+					%li= message
+
+= form_for(@item) do |p|
+	= p.label :descricao
+	= p.text_field :descricao, class: 'form-control'
+	= p.label :tipo
+	= p.select(:tipo, Item.tipos.collect {|k, v| [k.humanize, k]}, {}, {class: 'form-control'})
+	.submit-btn
+		= p.submit "Adicionar Item", class: 'btn btn-primary'

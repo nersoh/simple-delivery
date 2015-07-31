@@ -1,0 +1,4 @@
+%h1 Pedidos#index
+%ul
+	- @pedidos.each do |pedido|
+		%li= link_to "Pedido ##{pedido.id}", pedido

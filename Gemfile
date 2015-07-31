@@ -40,6 +40,9 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'spring-commands-rspec'
+  gem 'database_cleaner'
 end
 
 group :test do

@@ -1,0 +1,29 @@
+
+%h1= "Pedido ##{@pedido.id}"
+
+
+%h3 Carnes
+- if @pedido.carnes.any?
+	%ul
+		- @pedido.carnes.each do |item|
+			%li= item.descricao
+- else
+	%p Sem carnes
+
+%h3 Acompanhamentos
+- if @pedido.acompanhamentos.any?
+	%ul
+		- @pedido.acompanhamentos.each do |item|
+			%li= item.descricao
+- else
+	%p Sem acompanhamento
+
+
+%h3 Endereço
+
+%p
+	%strong Rua:
+	= "#{@pedido.rua}, #{@pedido.numero}"
+%p
+	%strong Referência:
+	= @pedido.referencia
