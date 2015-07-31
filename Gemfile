@@ -4,7 +4,7 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
