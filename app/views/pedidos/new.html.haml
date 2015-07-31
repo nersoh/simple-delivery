@@ -1,4 +1,4 @@
-%h1 Novo pedido
+%h1 O que vai querer?
 
 - if @pedido.errors.any?
 	#error-explanation
@@ -22,7 +22,7 @@
 				= check_box_tag "pedido[item_ids][]", item.id, false, id: "pedido_item_#{item.id}"
 				= item.descricao
 	.endereco-fields
-		%h3 Endereço
+		%h3 Onde entregar?
 		.field
 			= p.label :rua
 			= p.text_field :rua, class: 'form-control'
@@ -32,5 +32,7 @@
 		.field
 		= p.label :referencia
 		= p.text_field :referencia, class: 'form-control'
+	%br
 	.submit-btn
 		= p.submit "Finalizar pedido", class: 'btn btn-primary'
+	%hr

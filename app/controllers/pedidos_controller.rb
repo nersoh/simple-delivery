@@ -13,16 +13,14 @@ class PedidosController < ApplicationController
 
   def create
   	@pedido = Pedido.new(pedido_params)
-    # params[:pedido][:items_ids].each do |item|
-    #   @pedido.items << Item.find(item)
-    # end
     @carnes = Item.carnes
     @acompanhamentos = Item.acompanhamentos
+
   	if @pedido.save
-      flash[:success] = "Pedido realizado com sucesso"
-  		redirect_to @pedido
-  	else
-  		render :new
+      #flash[:success] = "Pedido realizado com sucesso"
+  		render 'success'
+    else
+      render :new
   	end
   end
 

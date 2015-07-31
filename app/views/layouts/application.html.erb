@@ -8,13 +8,8 @@
 </head>
 <body>
 
+<%= render 'layouts/header' %>
 <div class="container">
-	<% if notice %>
-	 <p class="alert alert-info"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-   <p class="aler alert-dangert"><%= alert %></p>
-  <% end %>
 	<% flash.each do |type, message| %>
 		<div class="alert alert-<%= type %>"><%= message %></div>
 	<% end %>

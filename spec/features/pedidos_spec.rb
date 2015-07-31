@@ -17,7 +17,5 @@ RSpec.feature "Pedidos", type: :feature do
     click_button("Finalizar pedido")
 
     expect(page).to have_text "Pedido realizado com sucesso"
-    expect(page).to have_text("Peixe")
-    expect(page).to have_text("Arroz")
   end
 end
