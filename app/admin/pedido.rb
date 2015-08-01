@@ -40,6 +40,10 @@ ActiveAdmin.register Pedido do
 		column "Efetuado em", sortable: :created_at do |pedido|
 			pedido.created_at.strftime("%Y %B %d at %I:%M %p")
 		end
+
+		column "Items" do |pedido|
+			pedido.list_items
+		end
 		column :rua
 		column :numero
 		column :referencia do |pedido|

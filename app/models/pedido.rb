@@ -21,4 +21,10 @@ class Pedido < ActiveRecord::Base
 		items.where(tipo: Item.tipos[:acompanhamento])
 	end
 
+	def list_items
+		my_items = []
+		items.map { |item| my_items.push(item.descricao) }
+		my_items.join(", ")
+	end
+
 end
